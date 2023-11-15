@@ -10,7 +10,7 @@ Steps:
 
 python3 process_binaries_txt.py > bin_binaries_list.txt
 
-3: Run python code to generate the CFGs from the files in bin_binaries.txt and output graphs to cfg_output directory (We can then load these graphs for use in project).
+3: Run gcn_and_load.py to generate the .pt files for each binary in above list.
 
-python3 generate_cfg.py
+4: 
 
