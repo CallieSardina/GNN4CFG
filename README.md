@@ -12,5 +12,5 @@ python3 process_binaries_txt.py > bin_binaries_list.txt
 
 3: Run gcn_and_load.py to generate the .pt files for each binary in above list.
 
-4: 
+4: Run test4.py to train & eval data using GCN in gcn_temp.py.
 
