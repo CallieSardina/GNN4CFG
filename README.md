@@ -14,3 +14,7 @@ python3 process_binaries_txt.py > bin_binaries_list.txt
 
 4: Run test4.py to train & eval data using GCN in gcn_temp.py.
 
+## Required:
+
+GraphViz needs to be installed on the system that is running anything with angr_utils.
+
