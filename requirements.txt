@@ -1,0 +1,7 @@
+torch~=2.1.1+cu118
+torch-geometric~=2.4.0
+data~=0.4
+angr~=9.2.77
+angr-utils==0.5.0
+networkx~=3.2.1
+bingraphvis~=0.4.0

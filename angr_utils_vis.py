@@ -2,7 +2,6 @@
 
 import angr
 from angrutils import plot_cfg, hook0, set_plot_style
-import bingraphvis
 
 
 def analyze(b, addr, name=None):
