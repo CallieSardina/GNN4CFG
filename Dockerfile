@@ -19,6 +19,11 @@ RUN pip3 install angr
 
 RUN pip3 install data
 
+# Install angr-utils and required packages
+RUN pip3 install angr-utils
+
+RUN apt install -y graphviz
+
 
 # Set the working directory inside the container
 WORKDIR /app
