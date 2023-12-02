@@ -13,24 +13,27 @@ def analyze(b, addr, name=None):
         if func.name in ['main','verify']:
             plot_cfg(cfg, "./angr_cfgs/%s_%s_cfg" % (name, func.name), asminst=True, vexinst=False, func_addr={addr:True}, debug_info=False, remove_imports=True, remove_path_terminator=True)
 
-    plot_cfg(cfg, "./angr_cfgs/%s_cfg_full" % (name), asminst=True, vexinst=True, debug_info=True, remove_imports=False, remove_path_terminator=False)
-
-    plot_cfg(cfg, "./angr_cfgs/%s_cfg_classic" % (name), asminst=True, vexinst=False, debug_info=False, remove_imports=True, remove_path_terminator=True)
+    # plot_cfg(cfg, "./angr_cfgs/%s_cfg_full" % (name), asminst=True, vexinst=True, debug_info=True, remove_imports=False, remove_path_terminator=False)
+    #
+    # plot_cfg(cfg, "./angr_cfgs/%s_cfg_classic" % (name), asminst=True, vexinst=False, debug_info=False, remove_imports=True, remove_path_terminator=True)
     plot_cfg(cfg, "./angr_cfgs/%s_cfg_classic" % (name), asminst=True, vexinst=False, debug_info=False, remove_imports=True, remove_path_terminator=True, format="raw")
 
-    for style in ['thick', 'dark', 'light', 'black', 'kyle']:
-        set_plot_style(style)
-        plot_cfg(cfg, "./angr_cfgs/%s_cfg_%s" % (name, style), asminst=True, vexinst=False, debug_info=False, remove_imports=True, remove_path_terminator=True)
+    # for style in ['thick', 'dark', 'light', 'black', 'kyle']:
+    #     set_plot_style(style)
+    #     plot_cfg(cfg, "./angr_cfgs/%s_cfg_%s" % (name, style), asminst=True, vexinst=False, debug_info=False, remove_imports=True, remove_path_terminator=True)
 
 
 if __name__ == "__main__":
     file_path = "bin_binaries_list.txt"
     with open(file_path, 'r') as file:
         for line in file:
-            l = line.strip()[1:]
-            print(l)
-            n = l[5:]
-            print(n)
-            proj = angr.Project(l, load_options={'auto_load_libs': False})
-            main = proj.loader.main_object.get_symbol("__libc_start_main")
-            analyze(proj, main.rebased_addr, n)
+            try:
+                l = line.strip()[1:]
+                print(l)
+                n = l[5:]
+                print(n)
+                proj = angr.Project(l, load_options={'auto_load_libs': False})
+                main = proj.loader.main_object.get_symbol("__libc_start_main")
+                analyze(proj, main.rebased_addr, n)
+            except Exception:
+                print(Exception.__cause__)
